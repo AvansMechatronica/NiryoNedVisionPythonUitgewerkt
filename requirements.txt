@@ -5,3 +5,9 @@ keyboard
 easygui
 pytransform3d
 ikpy
+numpy
+torch
+ultralytics
+pandas
+tqdm
+seaborn

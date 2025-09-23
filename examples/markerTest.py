@@ -2,14 +2,14 @@ import cv2
 # import the opencv library
 import keyboard  # load keyboard package
 import time
-from libraries.vision.usbCamera import usbCamera
+from libraries.vision.dahengCamera  import dahengCamera
 from libraries.vision.markers_detection import *
 from libraries.vision.enums import *
 
 camera_index = 1
 
 def main():
-    camera = usbCamera(camera_index, rotate_frame= True)
+    camera = dahengCamera(camera_index, rotate_frame= True)
 
     while True:
         if keyboard.is_pressed("q"):  # returns True if "q" is pressed

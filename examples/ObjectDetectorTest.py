@@ -1,7 +1,7 @@
 import cv2
 # import the opencv library
 import keyboard  # load keyboard package
-from libraries.vision.usbCamera import usbCamera
+from libraries.vision.dahengCamera import dahengCamera
 from libraries.vision.markers_detection import *
 from libraries.vision.ObjectDetector import ObjectDetector
 from libraries.vision.Workspace import Workspace
@@ -11,7 +11,7 @@ import time
 camera_index = 1
 
 def main():
-    camera = usbCamera(camera_index)
+    camera = dahengCamera(camera_index)
 
     workspace = Workspace()
 
