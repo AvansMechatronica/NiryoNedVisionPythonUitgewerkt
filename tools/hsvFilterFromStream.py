@@ -1,7 +1,7 @@
 import cv2
 # import the opencv library
 import keyboard  # load keyboard package
-from libraries.vision.usbCamera import usbCamera
+from libraries.vision.dahengCamera import dahengCamera
 from libraries.vision.enums import ColorHSV
 from libraries.vision.image_functions import *
 from libraries.vision.enums import *
@@ -54,7 +54,7 @@ def main():
     print(" s --> Enable streaming(default)")
     print(" p --> Take photo/Disable streaming")
 
-    camera = usbCamera(camera_index)
+    camera = dahengCamera(camera_index)
 
     time.sleep(2)
 

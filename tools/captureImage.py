@@ -1,7 +1,7 @@
 # import the opencv library
 import keyboard  # load keyboard package
 
-from libraries.vision.usbCamera import usbCamera
+from libraries.vision.dahengCamera import dahengCamera
 from libraries.vision.enums import *
 import easygui
 camera_index = 0
@@ -12,7 +12,7 @@ def main():
     print(" p --> Take Photo")
     print(" s --> Save Image")
 
-    camera = usbCamera(camera_index)
+    camera = dahengCamera(camera_index)
     image = None
 
     while True:

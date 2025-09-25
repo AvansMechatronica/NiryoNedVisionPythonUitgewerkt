@@ -1,7 +1,6 @@
 import cv2
 # import the opencv library
 import keyboard  # load keyboard package
-from libraries.vision.usbCamera import usbCamera
 from libraries.vision.enums import ColorHSV
 from libraries.vision.image_functions import *
 from libraries.vision.enums import *

@@ -1,7 +1,7 @@
 import cv2
 # import the opencv library
 import keyboard  # load keyboard package
-from libraries.vision.usbCamera import usbCamera
+from libraries.vision.dahengCamera import dahengCamera
 from libraries.vision.ObjectDetector import ObjectDetector
 from libraries.vision.Workspace import Workspace
 from libraries.vision.enums import *
@@ -12,7 +12,7 @@ import libraries.niryo.NiryoSupport as Niryo
 
 camera_index = 0
 def main():
-    camera = usbCamera(camera_index)
+    camera = dahengCamera(camera_index)
 
     workspace = Workspace()
 

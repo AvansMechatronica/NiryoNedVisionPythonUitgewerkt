@@ -3,7 +3,7 @@ import keyboard  # load keyboard package
 
 from pyniryo2 import *
 from libraries.vision.markers_detection import *
-from libraries.vision.usbCamera import usbCamera
+from libraries.vision.dahengCamera import dahengCamera
 import libraries.niryo.NiryoSupport as Niryo
 import cv2
 import time
@@ -12,7 +12,7 @@ from libraries.vision.enums import *
 
 camera_index = 0
 
-camera = usbCamera(camera_index, rotate_frame = True)
+camera = dahengCamera(camera_index, rotate_frame = True)
 def takePhoto():
     image = camera.take_photo()
     result, crop_image = extract_img_markers(image, workspace_ratio=1.0)
