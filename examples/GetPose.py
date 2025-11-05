@@ -1,10 +1,10 @@
-from pyniryo2 import *
+from pyniryo import *
 import time
 
 def main():
     robot = NiryoRobot("10.10.10.10")
 
-    pose = robot.arm.get_pose()
+    pose = robot.get_pose()
 
     print(pose)
 
