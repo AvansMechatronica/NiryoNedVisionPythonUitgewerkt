@@ -1,7 +1,7 @@
 # import the opencv library
 import keyboard  # load keyboard package
 
-from pyniryo2 import *
+from pyniryo import *
 from libraries.vision.markers_detection import *
 from libraries.vision.dahengCamera import dahengCamera
 import libraries.niryo.NiryoSupport as Niryo
@@ -30,8 +30,8 @@ def main():
     workspace = Workspace()
     robot = NiryoRobot("10.10.10.10")
     #robot = NiryoRobot("10.10.10.10")
-    robot.arm.reset_calibration()
-    robot.arm.request_new_calibration()
+    robot.reset_calibration()
+    robot.request_new_calibration()
 
     while True:
         print("Select gripper to calibrate")
@@ -56,41 +56,41 @@ def main():
         else:
             print("Invalid choise")
 
-    robot.arm.calibrate_auto()
+    robot.calibrate_auto()
 
-    robot.arm.set_learning_mode(False)
+    robot.set_learning_mode(False)
 
     print("To observation")
-    robot.arm.move_pose(Niryo.NED.OBSERVATION_POSE)
+    robot.move_pose(Niryo.NED.OBSERVATION_POSE)
 
     takePhoto()
 
-    robot.tool.set_tcp(offset)
-    robot.tool.enable_tcp(True)
+    robot.set_tcp(offset)
+    robot.enable_tcp(True)
 
     #cv2.waitKey(0)
 
-    robot.arm.move_to_home_pose()
-    robot.arm.set_learning_mode(True)
+    robot.move_to_home_pose()
+    robot.set_learning_mode(True)
 
     print("Move niryoNED calibration-tool to marker 1 and press Enter(in stream/marker window)")
     cv2.waitKey(0)
-    pose1 = robot.arm.get_pose()
+    pose1 = robot.get_pose()
     print(pose1)
 
     print("Move niryoNED calibration-tool to marker 2 and press Enter(in stream/marker window)")
     cv2.waitKey(0)
-    pose2 = robot.arm.get_pose()
+    pose2 = robot.get_pose()
     print(pose2)
 
     print("Move niryoNED calibration-tool to marker 3 and press Enter(in stream/marker window)")
     cv2.waitKey(0)
-    pose3 = robot.arm.get_pose()
+    pose3 = robot.get_pose()
     print(pose3)
 
     print("Move niryoNED calibration-tool to marker 4 and press Enter(in stream/marker window)")
     cv2.waitKey(0)
-    pose4 = robot.arm.get_pose()
+    pose4 = robot.get_pose()
     print(pose4)
 
     workspace.set(pose1, pose2, pose3, pose4)
@@ -99,7 +99,7 @@ def main():
     wsp = workspace.to_json()
     print(wsp)
 
-    robot.tool.enable_tcp(False)
+    robot.enable_tcp(False)
 
     print("Callibartion done")
 

@@ -1,4 +1,4 @@
-pyniryo2
+pyniryo
 opencv-python
 pillow
 keyboard

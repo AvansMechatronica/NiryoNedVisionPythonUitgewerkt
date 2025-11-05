@@ -1,4 +1,4 @@
-from pyniryo2 import *
+from pyniryo import *
 
 class ONE:
     pass

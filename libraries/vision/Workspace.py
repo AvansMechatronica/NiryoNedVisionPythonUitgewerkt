@@ -1,4 +1,4 @@
-from pyniryo2 import *
+from pyniryo import *
 import json
 import math
 import numpy as np

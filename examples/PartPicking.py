@@ -6,7 +6,7 @@ from libraries.vision.ObjectDetector import ObjectDetector
 from libraries.vision.Workspace import Workspace
 from libraries.vision.enums import *
 import time
-from pyniryo2 import *
+from pyniryo import *
 import libraries.niryo.NiryoSupport as Niryo
 
 camera_index = 1
@@ -21,21 +21,21 @@ def main():
         workspace.from_json(inputfile.read())
 
     robot = NiryoRobot("10.10.10.10")
-    #robot.arm.reset_calibration()
+    #robot.reset_calibration()
     if 0:
-        robot.arm.request_new_calibration()
-    robot.arm.calibrate_auto()
-    robot.arm.set_learning_mode(False)
-    robot.tool.enable_tcp(False)
+        robot.request_new_calibration()
+    robot.calibrate_auto()
+    robot.set_learning_mode(False)
+    robot.enable_tcp(False)
 
 
     print("To observation")
-    robot.arm.move_pose(Niryo.NED.OBSERVATION_POSE)
+    robot.move_pose(Niryo.NED.OBSERVATION_POSE)
 
     if 1:
         print("Enable TCP")
-        robot.tool.set_tcp(Niryo.NED.FINGER_GRIPPER_TCP_OFFSET)
-        robot.tool.enable_tcp(True)
+        robot.set_tcp(Niryo.NED.FINGER_GRIPPER_TCP_OFFSET)
+        robot.enable_tcp(True)
 
 
     image = camera.take_photo()
@@ -64,15 +64,15 @@ def main():
         realworld_pose.z += z_offset
         print("New realworld: " + str(realworld_pose))
         time.sleep(1)
-        robot.arm.move_pose(realworld_pose)
+        robot.move_pose(realworld_pose)
         print("Ready")
 
     while True:
         if keyboard.is_pressed("q"):  # returns True if "q" is pressed
-            robot.tool.enable_tcp(False)
-            robot.arm.move_pose(Niryo.NED.HOME_POSE)
-            robot.arm.move_to_home_pose()
-            robot.arm.set_learning_mode(True)
+            robot.enable_tcp(False)
+            robot.move_pose(Niryo.NED.HOME_POSE)
+            robot.move_to_home_pose()
+            robot.set_learning_mode(True)
             camera.end()
             robot.end()
             time.sleep(1)
